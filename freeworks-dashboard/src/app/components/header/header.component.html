@@ -1,0 +1,19 @@
+<nav>
+  <span class="inicio">Inicio</span>
+  <button (click)="onProyectosClick()">Proyectos</button>
+
+  <button (click)="toggleDropdown()">
+    Notificaciones ({{ pendingProjects.length }})
+  </button>
+  <div *ngIf="dropdownOpen" class="dropdown">
+    <ul>
+
+      <li *ngFor="let project of pendingProjects">
+        <button class="pending-project-btn" (click)="onPendingProjectClick(project.id)">
+        {{ project.name }}
+        </button>
+      </li>
+
+    </ul>
+  </div>
+</nav>

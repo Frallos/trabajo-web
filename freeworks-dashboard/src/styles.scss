@@ -1,0 +1,79 @@
+/* src/styles.scss */
+
+/* Variables de color */
+$primary-color: #3f51b5; // Azul (similar al Material Design)
+$accent-color: #ff4081; // Rosa (Material Design)
+$text-color: #333;
+$light-text-color: #666;
+$background-color: #f4f7f6;
+$card-background: #ffffff;
+$border-color: #e0e0e0;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+/* Reseteo básico */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Usaremos una fuente más moderna */
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+/* Importar fuente de Google Fonts (puedes añadirla en index.html también) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Estilos para encabezados */
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* Estilos de botones generales */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Estilos de inputs y selects generales */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  padding: 10px 12px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%; /* Opcional, para que ocupen todo el ancho disponible */
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+  }
+}
+
+/* Estilos para contenedores de tarjetas */
+.card-container {
+  background-color: $card-background;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $shadow-color;
+  margin-bottom: 20px;
+}

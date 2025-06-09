@@ -1,0 +1,53 @@
+<div class="project-card">
+  <h3>
+    <input [(ngModel)]="editingProject.name" type="text" placeholder="Nombre del Proyecto" />
+    ({{ editingProject.status }})
+  </h3>
+
+  <p>Cliente: {{ editingProject.client }}</p>
+
+  <div class="priority-update">
+    <label for="priority">Prioridad:</label>
+    <select id="priority" [(ngModel)]="editingProject.priority">
+      <option value="Alta">Alta</option>
+      <option value="Media">Media</option>
+      <option value="Baja">Baja</option>
+    </select>
+  </div>
+
+  <div class="status-update">
+    <label for="status">Estado:</label>
+    <select id="status" [(ngModel)]="editingProject.status" (change)="onStatusChange()">
+      <option value="Pendiente">Pendiente</option>
+      <option value="En Progreso">En Progreso</option>
+      <option value="Finalizado">Finalizado</option>
+    </select>
+  </div>
+
+  <p>Progreso: {{ editingProject.progress }}%</p>
+  <div class="progress-bar-container">
+    <div
+      class="progress-bar"
+      [style.width.%]="editingProject.progress"
+    >
+      {{ editingProject.progress }}%
+    </div>
+  </div>
+
+  <h4>Comentarios del Cliente:</h4>
+  <div class="comments-section">
+    <ul>
+      <li *ngFor="let comment of editingProject.comments; let i = index">
+        "{{ comment.text }}" - {{ comment.date }}
+        <button (click)="removeComment(i)">x</button>
+      </li>
+    </ul>
+
+    <textarea [(ngModel)]="newComment" placeholder="Escribir comentario del cliente..."></textarea>
+    <button (click)="addComment()">Agregar Comentario</button>
+  </div>
+
+  <button class="update-status-btn" (click)="applyChanges()">Actualizar</button>
+  <!-- Botón para eliminar proyecto -->
+  <button class="delete-project-btn" (click)="onDeleteClick()">Eliminar Proyecto</button>
+</div>

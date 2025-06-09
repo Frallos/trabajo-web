@@ -1,0 +1,64 @@
+<div class="filters-search-container">
+  <h2>Filtros y Búsqueda</h2>
+  <div class="filter-row">
+    <input
+      type="text"
+      placeholder="Buscar por nombre de proyecto"
+      [(ngModel)]="searchName"
+      class="search-input"
+    />
+
+    <select [(ngModel)]="filterClient" class="filter-select">
+      <option value="">Cliente: Todos</option>
+      <option *ngFor="let client of clients" [value]="client">{{ client }}</option>
+    </select>
+
+    <select [(ngModel)]="filterStatus" class="filter-select">
+      <option value="">Estado: Todos</option>
+      <option value="Activo">Activo</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Entregado">Entregado</option>
+    </select>
+
+    <select [(ngModel)]="filterPriority" class="filter-select">
+      <option value="">Prioridad: Todas</option>
+      <option value="Alta">Alta</option>
+      <option value="Media">Media</option>
+      <option value="Baja">Baja</option>
+    </select>
+
+    <button class="apply-filters-btn" (click)="applyFilters()">Aplicar Filtros</button>
+    <button class="reset-filters-btn" (click)="resetFilters()">Reiniciar Filtros</button>
+  </div>
+
+  <div class="tabs">
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'Todos'"
+      (click)="selectTab('Todos')"
+    >
+      Todos los Proyectos
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'Activo'"
+      (click)="selectTab('Activo')"
+    >
+      Proyectos Activos
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'Entregado'"
+      (click)="selectTab('Entregado')"
+    >
+      Proyectos Entregados
+    </button>
+    <button
+      class="tab-button"
+      [class.active]="activeTab === 'Pendiente'"
+      (click)="selectTab('Pendiente')"
+    >
+      Proyectos Pendientes
+    </button>
+  </div>
+</div>

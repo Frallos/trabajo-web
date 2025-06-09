@@ -1,0 +1,77 @@
+/* src/app/pages/register/register.component.scss */
+@import '../../../styles.scss';
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $background-color;
+  padding: 20px;
+}
+
+.register-card {
+  @extend .card-container; // Hereda estilos básicos de tarjeta
+  width: 100%;
+  max-width: 450px; // Un poco más ancho para más campos
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: 30px;
+    font-size: 2em;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: $text-color;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $border-color;
+      border-radius: 6px;
+      font-size: 1.1em;
+    }
+  }
+
+  .register-button {
+    background-color: $accent-color; // Usamos el color de acento
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+
+  .login-link {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: $light-text-color;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

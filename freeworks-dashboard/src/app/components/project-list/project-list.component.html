@@ -1,0 +1,48 @@
+<app-header
+  [pendingProjects]="pendingProjects"
+  (proyectosClicked)="showAllProjectsAndScroll()"
+  (proyectoSelected)="filterAndScrollToProject($event)"
+  (filterPending)="onFilterPending()"
+></app-header>
+
+<app-dashboard-summary [projects]="projects"></app-dashboard-summary>
+
+<app-project-filters
+  [clients]="clientList"
+  [activeTab]="currentFilters.activeTab"
+  (filtersApplied)="onFiltersApplied($event)"
+></app-project-filters>
+
+<h2>Listado de Proyectos</h2>
+
+<div class="create-project-form">
+  <input
+    type="text"
+    [(ngModel)]="newProjectName"
+    placeholder="Nombre del Proyecto"
+  />
+  <input
+    type="text"
+    [(ngModel)]="newProjectClient"
+    placeholder="Cliente"
+  />
+  <select [(ngModel)]="newProjectPriority">
+    <option value="Alta">Alta</option>
+    <option value="Media">Media</option>
+    <option value="Baja">Baja</option>
+  </select>
+  <button (click)="createProject()">Crear Proyecto</button>
+</div>
+
+<div class="project-list-container" id="project-list">
+  <h2>Lista de Proyectos</h2>
+  <div class="project-grid">
+    <app-project-card
+      *ngFor="let project of filteredProjects"
+      [project]="project"
+      (deleteProject)="removeProject($event)"
+      (projectUpdated)="updateProject($event)"
+      [attr.id]="'project-' + project.id"
+    ></app-project-card>
+  </div>
+</div>
