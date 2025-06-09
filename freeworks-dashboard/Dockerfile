@@ -15,7 +15,7 @@ RUN git clone ${REPO_URL} .
 RUN npm install -g @angular/cli
 
 # Cambiar al directorio frontend e instalar dependencias
-WORKDIR /app/frontend
+WORKDIR /resource-manager/frontend
 RUN npm install
 
 # Exponer el puerto 4200 (predeterminado para ng serve)
